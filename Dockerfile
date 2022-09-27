@@ -14,7 +14,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     software-properties-common \
     wget \
     openjdk-8-jdk \
-    openjdk-11-jdk 
+    openjdk-11-jdk \
+    openjdk-17-jdk
 
 #Install dotnet-sdk-6
 RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
@@ -36,6 +37,11 @@ RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 ENV TARGETARCH=linux-x64
+
+# Set JAVA_Home_Variables
+ENV JAVA_HOME_8_X64=/usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME_11_X64=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME_17_X64=/usr/lib/jvm/java-17-openjdk-amd64
 
 WORKDIR /azp
 

@@ -1,0 +1,38 @@
+kind: pipeline
+name: default
+
+steps:
+- name: Docker Build And Upload
+  image: docker
+  environment:
+    PASSWORD:
+      from_secret: docker_hub_password
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
+  commands:
+  - docker build . -t chrizzo84/azpipeline:${DRONE_BUILD_NUMBER} -t chrizzo84/azpipeline:latest
+  - docker login -u chrizzo84 -p $PASSWORD
+  - docker image push chrizzo84/azpipeline:latest
+  - docker image push chrizzo84/azpipeline:${DRONE_BUILD_NUMBER}
+
+- name: Docker Prune Older 24h
+  image: docker
+  volumes:
+  - name: dockersock
+    path: /var/run/docker.sock
+  commands:
+  - docker image list
+  - docker image prune -a --force --filter "until=24h"
+  - docker image list
+
+trigger:
+  branch:
+  - main
+  - feature/*
+
+
+volumes:
+- name: dockersock
+  host:
+    path: /var/run/docker.sock

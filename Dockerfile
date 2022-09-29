@@ -18,13 +18,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     openjdk-17-jdk \
     dotnet-sdk-6.0
 
-#Install dotnet-sdk-6
-#RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
- #   && dpkg -i packages-microsoft-prod.deb \
-  #  && rm packages-microsoft-prod.deb \
-   # && apt-get update \
-    #&& apt-get install -y dotnet-sdk-6.0 
-
 # TODO: Workaround for devops agent not supporting OpenSSL 3.0
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1160576447
 RUN curl -sL http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb > libssl1.1_1.1.0g-2ubuntu4_amd64.deb && \

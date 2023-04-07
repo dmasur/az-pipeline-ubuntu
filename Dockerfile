@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM amd64/ubuntu:22.10
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
@@ -15,8 +15,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     wget \
     openjdk-8-jdk \
     openjdk-11-jdk \
-    openjdk-17-jdk \
-    dotnet-sdk-6.0
+    openjdk-17-jdk
+
+# Install donet SDK
+RUN curl https://dot.net/v1/dotnet-install.sh --output dotnet-install.sh
+RUN chmod +x ./dotnet-install.sh
+RUN ./dotnet-install.sh --channel 6.0
 
 # TODO: Workaround for devops agent not supporting OpenSSL 3.0
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1160576447
@@ -27,6 +31,7 @@ RUN curl -sL http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1151874312
 RUN sed -i 's/openssl_conf = openssl_init/#openssl_conf = openssl_init/g' /etc/ssl/openssl.cnf
 
+# Install Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.

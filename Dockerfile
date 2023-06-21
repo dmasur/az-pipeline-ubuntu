@@ -15,7 +15,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     wget \
     openjdk-8-jdk \
     openjdk-11-jdk \
-    openjdk-17-jdk
+    openjdk-17-jdk \
+    npm
 
 # Install donet SDK
 RUN curl https://dot.net/v1/dotnet-install.sh --output dotnet-install.sh

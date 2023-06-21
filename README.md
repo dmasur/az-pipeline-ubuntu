@@ -1,4 +1,4 @@
-# Ubuntu 22.04 Azure Pipelines Agent in Docker
+# Ubuntu 22.10 Azure Pipelines Agent in Docker
 This is a Dockerfile + start.sh for Azure Piplines Agent with some preinstalled stuff.
 
 ## Preinstalled Software:
@@ -7,6 +7,7 @@ This is a Dockerfile + start.sh for Azure Piplines Agent with some preinstalled 
 - OpenJDK 8
 - Dotnet 6
 - Python3
+- npm
 
 ## Capabilities:
 | Env              | Path                                |

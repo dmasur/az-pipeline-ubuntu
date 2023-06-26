@@ -1,3 +1,4 @@
+  GNU nano 5.4                                                                                                                                             Dockerfile                                                                                                                                                       
 FROM amd64/ubuntu:22.10
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
@@ -19,10 +20,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     npm
 
 # Install donet SDK
-RUN curl https://dot.net/v1/dotnet-install.sh --output dotnet-install.sh
-RUN chmod +x ./dotnet-install.sh
-RUN ./dotnet-install.sh --channel 6.0
-RUN ./dotnet-install.sh --channel 7.0
+RUN apt-get update && \
+  apt-get install -y dotnet-sdk-7.0 && \
+  apt-get install -y dotnet-sdk-6.0
 
 # TODO: Workaround for devops agent not supporting OpenSSL 3.0
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1160576447

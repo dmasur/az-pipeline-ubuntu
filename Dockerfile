@@ -1,4 +1,4 @@
-  GNU nano 5.4                                                                                                                                             Dockerfile                                                                                                                                                       
+                                                                                                                                       Dockerfile                                                                                                                                                       
 FROM amd64/ubuntu:22.10
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y

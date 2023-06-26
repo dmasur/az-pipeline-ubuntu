@@ -16,9 +16,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     openjdk-8-jdk \
     openjdk-11-jdk \
     openjdk-17-jdk \
-    npm \
-    dotnet-sdk-6.0 \
-    dotnet-sdk-7.0
+    npm
+
+# Install donet SDK
+RUN curl https://dot.net/v1/dotnet-install.sh --output dotnet-install.sh
+RUN chmod +x ./dotnet-install.sh
+RUN ./dotnet-install.sh --channel 6.0
 
 # TODO: Workaround for devops agent not supporting OpenSSL 3.0
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1160576447

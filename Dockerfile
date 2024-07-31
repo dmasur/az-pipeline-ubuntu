@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:22.10
+FROM amd64/ubuntu:24.04
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 

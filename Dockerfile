@@ -20,8 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
 
 # Install donet SDK
 RUN apt-get update && \
-  apt-get install -y dotnet-sdk-7.0 && \
-  apt-get install -y dotnet-sdk-6.0
+  apt-get install -y dotnet-sdk-8.0
 
 # TODO: Workaround for devops agent not supporting OpenSSL 3.0
 # https://github.com/microsoft/azure-pipelines-agent/issues/3834#issuecomment-1160576447

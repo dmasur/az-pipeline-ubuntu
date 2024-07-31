@@ -1,6 +1,6 @@
 FROM amd64/ubuntu:22.10
-#RUN DEBIAN_FRONTEND=noninteractive apt-get update
-#RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
     apt-transport-https \

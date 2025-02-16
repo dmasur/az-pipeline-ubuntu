@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:24.04
+FROM amd64/ubuntu:24.10
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
@@ -16,7 +16,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     openjdk-8-jdk \
     openjdk-11-jdk \
     openjdk-17-jdk \
-    npm
+    npm \
+    buildah
 
 # Install donet SDK
 RUN apt-get update && \

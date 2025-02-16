@@ -1,4 +1,4 @@
-# Ubuntu 24.04 Azure Pipelines Agent in Docker
+# Ubuntu 24.10 Azure Pipelines Agent in Docker
 This is a Dockerfile + start.sh for Azure Piplines Agent with some preinstalled stuff.
 
 ## Preinstalled Software:

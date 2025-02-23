@@ -17,7 +17,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     openjdk-11-jdk \
     openjdk-17-jdk \
     npm \
-    buildah
+    buildah \
+    docker
 
 # Install donet SDK
 RUN apt-get update && \
